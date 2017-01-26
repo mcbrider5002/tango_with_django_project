@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+HttpResponse(" <br/> <a href='/rango/'>Index</a>")
 {% load staticfiles %}
 
 <html>
@@ -9,16 +9,17 @@
 	</head>
 	
 	<body>
-		<h1>Rango says...</h1>
 		<div>
-			hey there partner! <br />
-			<strong>{{ boldmessage }}</strong><br />
+			Rango says this here is the about page. <br />
+			This tutorial has been put together by Ross McBride.<br />
 			</div>
 			
 		<div>
 			<a href="/rango/about">About</a><br />
 			<img src="{% static "images/rango.jpg" %}"
                  alt="Picture of Rango" />
+			<img src="{{ MEDIA_URL}}cat.jpg"
+				 alt="Mysterious and Transcendental" />
 		</div>
 	</body>
 	
