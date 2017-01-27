@@ -25,7 +25,7 @@ urlpatterns = [
 	#maps urls starting with 'rango/' to handler in rango app
 	url(r'^rango/', include('rango.urls')),
 	url(r'^about/$', views.about, name='about'),
-	url(r'^category/(?P<category_name_slug>[\w\-]+)/$',
-		views.show_category, name = 'show_category'),
+	url(r'^category/(?P<category_name_slug>[\w\-]+)/$', 
+        views.show_category, name='show_category'),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

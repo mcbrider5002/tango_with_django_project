@@ -9,7 +9,10 @@ def index(request):
 	#place list in context_dict to pass on to template engine
 	
 	category_list = Category.objects.order_by('-likes')[:5]
-	context_dict = {'categories': category_list}
+	page_views = Page.objects.order_by('-views')[:5]
+	print page_views
+	context_dict = {'categories': category_list, 
+					'pages': page_views}
 	
 	#render response and return
 	return render(request, 'rango/index.html', context=context_dict)
@@ -23,7 +26,7 @@ def show_category(request, category_name_slug):
 	#returns a category with the given slug name
 	#if it does not exist, raises DoesNotExist exception
 	try:
-		category = Category.objects.get(slug=category_name)
+		category = Category.objects.get(slug=category_name_slug)
 
 		#finds all associated pages matching given category
 		pages = Page.objects.filter(category=category)
